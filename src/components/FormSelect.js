@@ -7,12 +7,8 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles({
   field: {
     marginBottom: '1.5rem',
-    color: '#2B4779',
   },
   label: {
-    color: '#2B4779',
-  },
-  input: {
     color: '#2B4779',
   },
 });

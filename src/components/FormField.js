@@ -10,9 +10,6 @@ const useStyles = makeStyles({
   label: {
     color: '#2B4779',
   },
-  input: {
-    color: '#2B4779',
-  },
 });
 
 const FormField = ({
@@ -38,11 +35,6 @@ const FormField = ({
       InputLabelProps={{
         classes: {
           root: classes.label,
-        },
-      }}
-      InputProps={{
-        classes: {
-          root: classes.input,
         },
       }}
     />

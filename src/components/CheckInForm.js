@@ -44,7 +44,10 @@ const CheckInForm = () => {
   return (
     <>
       <h1 className={classes.headline}>
-        Hello {firstName} {lastName} 👋
+        Hello {firstName} {lastName}{' '}
+        <span role="img" aria-label="waving hand emoji">
+          👋
+        </span>
       </h1>
       <Formik
         initialValues={{

@@ -23,9 +23,6 @@ const useStyles = makeStyles({
   label: {
     color: '#2B4779',
   },
-  input: {
-    color: '#2B4779',
-  },
   button: {
     marginTop: '1.5rem',
     fontSize: '1rem',
@@ -95,11 +92,6 @@ const FlightSearch = () => {
                     root: classes.label,
                   },
                 }}
-                InputProps={{
-                  classes: {
-                    root: classes.input,
-                  },
-                }}
               />
               <TextField
                 className={classes.field}
@@ -115,11 +107,6 @@ const FlightSearch = () => {
                 InputLabelProps={{
                   classes: {
                     root: classes.label,
-                  },
-                }}
-                InputProps={{
-                  classes: {
-                    root: classes.input,
                   },
                 }}
               />
