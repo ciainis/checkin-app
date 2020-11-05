@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { redirectTo } from '@reach/router';
 import { Formik } from 'formik';
 import checkInValidationSchema from './checkInValidationSchema';
@@ -26,6 +26,8 @@ const useStyles = makeStyles({
   },
 });
 
+const needExtraFields = ['austria', 'belgium', 'france', 'greece', 'spain'];
+
 const CheckInForm = () => {
   const isAllowed = localStorage.getItem('step1');
   if (!isAllowed) {
@@ -34,15 +36,6 @@ const CheckInForm = () => {
 
   const classes = useStyles();
   const { firstName, lastName } = JSON.parse(localStorage.getItem('user'));
-  const [extraFields, setExtraFields] = useState(false);
-  const [nationality, setNationality] = useState('');
-
-  useEffect(() => {
-    const needExtraFields = ['austria', 'belgium', 'france', 'greece', 'spain'];
-    needExtraFields.includes(nationality)
-      ? setExtraFields(true)
-      : setExtraFields(false);
-  }, [nationality]);
 
   return (
     <>
@@ -79,7 +72,9 @@ const CheckInForm = () => {
             handleSubmit,
             isSubmitting,
           } = props;
-          setNationality(values.nationality);
+
+          const extraFields = needExtraFields.includes(values.nationality);
+
           return (
             <form className={classes.form} onSubmit={handleSubmit}>
               <FormField
@@ -151,7 +146,7 @@ const CheckInForm = () => {
               />
               {extraFields && (
                 <FormExtrFiedls
-                  nationality={nationality}
+                  nationality={values.nationality}
                   values={values}
                   errors={errors}
                   touched={touched}
