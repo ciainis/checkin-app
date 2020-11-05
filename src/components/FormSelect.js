@@ -42,7 +42,7 @@ const FormSelect = ({ errors, name, value, onChange, onBlur, helperText }) => {
       >
         <option className={classes.input} aria-label="None" value="" />
         {options.map((option, index) => (
-          <option key={index} clasName={classes.input} value={option}>
+          <option key={index} className={classes.input} value={option}>
             {option.charAt(0).toUpperCase() + option.slice(1)}
           </option>
         ))}

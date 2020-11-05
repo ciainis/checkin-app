@@ -5,7 +5,7 @@ const useStyles = makeStyles({
   root: {
     fontFamily: 'Roboto, sans',
     backgroundColor: '#F4F4F4',
-    height: '100vh',
+    minHeight: '100vh',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',

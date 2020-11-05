@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { redirectTo } from '@reach/router';
 import { Formik } from 'formik';
+import checkInValidationSchema from './checkInValidationSchema';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import FormField from './FormField';
 import FormSelect from './FormSelect';
+import FormExtrFiedls from './FormExtraFields';
 
 const useStyles = makeStyles({
   headline: {
@@ -65,6 +67,7 @@ const CheckInForm = () => {
           address: '',
         }}
         onSubmit={(values) => console.log(values)}
+        validationSchema={checkInValidationSchema}
       >
         {(props) => {
           const {
@@ -146,11 +149,20 @@ const CheckInForm = () => {
                   errors.passport && touched.passport && errors.passport
                 }
               />
-              {extraFields && 'PORCODDIO'}
+              {extraFields && (
+                <FormExtrFiedls
+                  nationality={nationality}
+                  values={values}
+                  errors={errors}
+                  touched={touched}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+              )}
               <Button
                 variant="contained"
                 className={classes.button}
-                // type="submit"
+                type="submit"
                 disabled={isSubmitting}
               >
                 Continue

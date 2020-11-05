@@ -26,28 +26,26 @@ const FormField = ({
 }) => {
   const classes = useStyles();
   return (
-    <>
-      <TextField
-        className={classes.field}
-        error={error}
-        label={label}
-        name={name}
-        value={value}
-        onChange={onChange}
-        onBlur={onBlur}
-        helperText={helperText}
-        InputLabelProps={{
-          classes: {
-            root: classes.label,
-          },
-        }}
-        InputProps={{
-          classes: {
-            root: classes.input,
-          },
-        }}
-      />
-    </>
+    <TextField
+      className={classes.field}
+      error={error}
+      label={label}
+      name={name}
+      value={value}
+      onChange={onChange}
+      onBlur={onBlur}
+      helperText={helperText}
+      InputLabelProps={{
+        classes: {
+          root: classes.label,
+        },
+      }}
+      InputProps={{
+        classes: {
+          root: classes.input,
+        },
+      }}
+    />
   );
 };
 

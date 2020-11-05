@@ -4,7 +4,7 @@ import { navigate } from '@reach/router';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
-import * as Yup from 'yup';
+import validationSchema from './validationSchema';
 import axios from 'axios';
 
 const useStyles = makeStyles({
@@ -63,12 +63,7 @@ const FlightSearch = () => {
             })
             .catch((err) => console.log(err))
         }
-        validationSchema={Yup.object().shape({
-          flightNumber: Yup.string().required(
-            'Please provide the flight number'
-          ),
-          lastName: Yup.string().required('Please provide your last name'),
-        })}
+        validationSchema={validationSchema}
       >
         {(props) => {
           const {
