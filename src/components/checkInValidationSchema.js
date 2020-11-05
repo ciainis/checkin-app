@@ -1,9 +1,9 @@
 import * as Yup from 'yup';
 
 export default Yup.object().shape({
+  checked: Yup.boolean().oneOf([true]).required('Please accept the T&C'),
   firstName: Yup.string().required('Please provide your first name'),
   lastName: Yup.string().required('Please provide your last name'),
-  nationality: Yup.string().required('Please select your nationality'),
   phoneNumber: Yup.string().required('Please provide your phone number'),
   email: Yup.string().email().required('Please provide your email'),
   passport: Yup.string().required('Please provide your passport number'),

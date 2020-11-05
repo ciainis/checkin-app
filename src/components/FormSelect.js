@@ -19,7 +19,7 @@ const useStyles = makeStyles({
 
 const options = ['austria', 'germany', 'france', 'belgium', 'spain', 'greece'];
 
-const FormSelect = ({ errors, name, value, onChange, onBlur, helperText }) => {
+const FormSelect = ({ name, value, onChange, onBlur }) => {
   const classes = useStyles();
 
   return (
@@ -30,17 +30,11 @@ const FormSelect = ({ errors, name, value, onChange, onBlur, helperText }) => {
       <Select
         native
         className={classes.field}
-        error={errors}
         name={name}
         value={value}
         onChange={onChange}
         onBlur={onBlur}
-        helperText={helperText}
-        InputProps={{
-          id: 'nationality',
-        }}
       >
-        <option className={classes.input} aria-label="None" value="" />
         {options.map((option, index) => (
           <option key={index} className={classes.input} value={option}>
             {option.charAt(0).toUpperCase() + option.slice(1)}

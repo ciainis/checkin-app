@@ -1,5 +1,6 @@
 import React from 'react';
-import { redirectTo } from '@reach/router';
+import { redirectTo, navigate } from '@reach/router';
+import axios from 'axios';
 import { Formik } from 'formik';
 import checkInValidationSchema from './checkInValidationSchema';
 import { makeStyles } from '@material-ui/core/styles';
@@ -7,6 +8,9 @@ import Button from '@material-ui/core/Button';
 import FormField from './FormField';
 import FormSelect from './FormSelect';
 import FormExtrFiedls from './FormExtraFields';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const useStyles = makeStyles({
   headline: {
@@ -58,8 +62,22 @@ const CheckInForm = () => {
           country: '',
           city: '',
           address: '',
+          checked: false,
         }}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={() => {
+          axios
+            .post('https://app.fakejson.com/q', {
+              token: 'NuE06Dw8hMe60V70cDOHJw',
+              data: {
+                status: 'OK',
+              },
+            })
+            .then(() => {
+              localStorage.setItem('step2', true);
+              navigate('/confirmation');
+            })
+            .catch((err) => console.log(err));
+        }}
         validationSchema={checkInValidationSchema}
       >
         {(props) => {
@@ -100,16 +118,10 @@ const CheckInForm = () => {
                 }
               />
               <FormSelect
-                error={errors.nationality && touched.nationality}
                 name="nationality"
                 value={values.nationality}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                helperText={
-                  errors.nationality &&
-                  touched.nationality &&
-                  errors.nationality
-                }
               />
               <FormField
                 error={errors.email && touched.email}
@@ -154,11 +166,23 @@ const CheckInForm = () => {
                   onBlur={handleBlur}
                 />
               )}
+              <FormGroup>
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={values.checked}
+                      onChange={handleChange}
+                      name="checked"
+                    />
+                  }
+                  label="Terms & conditions"
+                />
+              </FormGroup>
               <Button
                 variant="contained"
                 className={classes.button}
                 type="submit"
-                disabled={isSubmitting}
+                disabled={isSubmitting || !values.checked}
               >
                 Continue
               </Button>
