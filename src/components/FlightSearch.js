@@ -18,7 +18,7 @@ const useStyles = makeStyles({
     marginTop: '3.5rem',
   },
   field: {
-    marginBottom: '0.5rem',
+    marginBottom: '1.5rem',
   },
   label: {
     color: '#2B4779',
