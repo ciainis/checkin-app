@@ -4,7 +4,7 @@ import { navigate } from '@reach/router';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
-import validationSchema from './validationSchema';
+import { flighSearchSchema } from './validationSchema';
 import axios from 'axios';
 
 const useStyles = makeStyles({
@@ -60,7 +60,7 @@ const FlightSearch = () => {
             })
             .catch((err) => console.log(err))
         }
-        validationSchema={validationSchema}
+        validationSchema={flighSearchSchema}
       >
         {(props) => {
           const {

@@ -2,7 +2,7 @@ import React from 'react';
 import { redirectTo, navigate } from '@reach/router';
 import axios from 'axios';
 import { Formik } from 'formik';
-import checkInValidationSchema from './checkInValidationSchema';
+import { checkInSchema } from './validationSchema';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import FormField from './FormField';
@@ -81,7 +81,7 @@ const CheckInForm = () => {
             })
             .catch((err) => console.log(err));
         }}
-        validationSchema={checkInValidationSchema}
+        validationSchema={checkInSchema}
       >
         {(props) => {
           const {
