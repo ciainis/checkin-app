@@ -37,7 +37,12 @@ A quick look at the top-level files and directories.
 
 ## Installation
 
-You can clone this repository or download it as a .zip file. To install the project dependencies, use the command `npm install`. To run the project locally, use the command `npm run dev`. The app will be available at `localhost:1234`.
+You can clone this repository or download it as a .zip file.
+
+- `npm install`: install the project dependencies, use the command To run the project locally, use the command
+- `npm run dev`: run the project locally
+- `npm run build`: creates an app production build
+- `npm run test`: run tests
 
 ## Environment
 
