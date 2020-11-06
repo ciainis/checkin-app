@@ -53,7 +53,7 @@ const CheckInForm = () => {
         initialValues={{
           firstName,
           lastName,
-          nationality: '',
+          nationality: 'austria',
           email: '',
           phoneNumber: '',
           passport: '',
