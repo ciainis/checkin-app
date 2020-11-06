@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   root: {
-    fontFamily: 'Roboto, sans',
     backgroundColor: '#F4F4F4',
     minHeight: '100vh',
     display: 'flex',
