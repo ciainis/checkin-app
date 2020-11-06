@@ -42,7 +42,7 @@ const FlightSearch = () => {
         onSubmit={({ flightNumber, lastName }) =>
           axios
             .post('https://app.fakejson.com/q', {
-              token: 'NuE06Dw8hMe60V70cDOHJw',
+              token: process.env.FAKEJSONTOKEN,
               data: {
                 flightNumber,
                 lastName,
