@@ -1,3 +1,3 @@
-# React Boilerplat
+# Flight Check-in App
 
-This repo contains a simple boilerplate to get started with React projects.
+This repo contains an application to perform online flight check-ins.
