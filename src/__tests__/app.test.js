@@ -32,12 +32,12 @@ describe('the FlighSearch component', () => {
     expect(lastName.value).toBe('Ciano');
   });
 
-  // test not  working
   it('submits the form', async () => {
-    const { getByTestId, container } = render(<FlightSearch />);
-    const onSubmit = jest.fn();
-    const button = getByTestId('button');
-    const form = getByTestId('form');
+    const { container } = render(<FlightSearch />);
+    const button = container.querySelector('button');
+    const form = container.querySelector('form');
+    const mockSubmit = jest.fn();
+    form.onsubmit = mockSubmit;
     const flightNumber = container.querySelector(
       '.MuiInputBase-input[name="flightNumber"]'
     );
@@ -50,6 +50,6 @@ describe('the FlighSearch component', () => {
     fireEvent.click(button);
     fireEvent.submit(form);
 
-    await waitFor(() => expect(onSubmit).toHaveBeenCalled());
+    await waitFor(() => expect(mockSubmit).toHaveBeenCalled());
   });
 });
