@@ -1,9 +1,9 @@
 import React from 'react';
 import { Router } from '@reach/router';
-import Layout from './components/Layout';
-import FlightSearch from './components/FlightSearch';
-import CheckInForm from './components/CheckInForm';
-import Confirmation from './components/Confirmation';
+import Layout from './Layout';
+import FlightSearch from './FlightSearch';
+import CheckInForm from './CheckInForm';
+import Confirmation from './Confirmation';
 
 const App = () => {
   return (
