@@ -9,15 +9,17 @@ The app is available at https://checkin-app.netlify.app/
 ## 🧐 What’s inside?
 
 A quick look at the top-level files and directories.
-.
-├── node_modules
-├── src
-├── .babelrc
-├── .gitignore
-├── .prettierrc
-├── package.lock.json
-├── package.json
-└── README.md
+
+<!-- prettier-ignore -->
+    .
+    ├── node_modules
+    ├── src
+    ├── .babelrc
+    ├── .gitignore
+    ├── .prettierrc
+    ├── README.md
+    ├── package.lock.json
+    └── package.json
 
 1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
 
