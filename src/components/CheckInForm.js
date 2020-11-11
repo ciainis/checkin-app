@@ -3,14 +3,15 @@ import { redirectTo, navigate } from '@reach/router';
 import axios from 'axios';
 import { Formik } from 'formik';
 import { checkInSchema } from './validationSchema';
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import FormField from './FormField';
-import FormSelect from './FormSelect';
+import {
+  makeStyles,
+  FormGroup,
+  FormControlLabel,
+  Checkbox,
+  Button,
+} from '@material-ui/core';
 import FormExtrFiedls from './FormExtraFields';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+import FormCommonFields from './FormCommonFields';
 
 const useStyles = makeStyles({
   headline: {
@@ -98,66 +99,12 @@ const CheckInForm = () => {
 
           return (
             <form className={classes.form} onSubmit={handleSubmit}>
-              <FormField
-                error={errors.firstName && touched.firstName}
-                label={'First Name'}
-                name={'firstName'}
-                value={values.firstName}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                helperText={
-                  errors.firstName && touched.firstName && errors.firstName
-                }
-              />
-              <FormField
-                error={errors.lastName && touched.lastName}
-                label={'Last Name'}
-                name={'lastName'}
-                value={values.lastName}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                helperText={
-                  errors.lastName && touched.lastName && errors.lastName
-                }
-              />
-              <FormSelect
-                name="nationality"
-                value={values.nationality}
-                onChange={handleChange}
-                onBlur={handleBlur}
-              />
-              <FormField
-                error={errors.email && touched.email}
-                label={'Email'}
-                name={'email'}
-                value={values.email}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                helperText={errors.email && touched.email && errors.email}
-              />
-              <FormField
-                error={errors.phoneNumber && touched.phoneNumber}
-                label={'Phone Number'}
-                name={'phoneNumber'}
-                value={values.phoneNumber}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                helperText={
-                  errors.phoneNumber &&
-                  touched.phoneNumber &&
-                  errors.phoneNumber
-                }
-              />
-              <FormField
-                error={errors.passport && touched.passport}
-                label={'Passport'}
-                name={'passport'}
-                value={values.passport}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                helperText={
-                  errors.passport && touched.passport && errors.passport
-                }
+              <FormCommonFields
+                values={values}
+                errors={errors}
+                touched={touched}
+                handleChange={handleChange}
+                handleBlur={handleBlur}
               />
               {extraFields && (
                 <FormExtrFiedls
