@@ -1,7 +1,7 @@
 {
-  "name": "react-boilerplate",
+  "name": "checkin-app",
   "version": "1.0.0",
-  "description": "Boilerplat for Reacr projects",
+  "description": "Mock flight check-in application",
   "main": "index.js",
   "scripts": {
     "build": "parcel build src/index.html",
